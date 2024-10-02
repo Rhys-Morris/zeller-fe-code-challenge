@@ -1,4 +1,6 @@
-export const validResponseFixture = {
+import { CustomerResponse } from "../customers/schema";
+
+export const validResponseFixture: CustomerResponse = {
   listZellerCustomers: {
     items: [
       {

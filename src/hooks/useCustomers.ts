@@ -4,7 +4,7 @@ import { CustomerService } from "../api/customers/service";
 
 type CustomersByRole = Map<Role, Customer[]>;
 
-export function useCustomersByRole() {
+export const useCustomers = () => {
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [isError, setIsError] = useState(false);
 
@@ -28,7 +28,7 @@ export function useCustomersByRole() {
     customersByRole,
     isError,
   };
-}
+};
 
 function associateCustomersByRole(customers: Customer[]): CustomersByRole {
   return customers.reduce<CustomersByRole>((map, customer) => {
