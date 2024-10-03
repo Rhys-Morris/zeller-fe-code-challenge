@@ -14,7 +14,7 @@ export function CustomerRow({ customer }: Props) {
     customer.name.length > 0 ? customer.name[0] : UNKNOWN_USER_CHAR;
 
   return (
-    <div className={styles.row}>
+    <div className={styles.row} data-testid={"customerRow"}>
       <Avatar char={avatarChar} />
       <CustomerDetails name={customer.name} role={customer.role} />
     </div>

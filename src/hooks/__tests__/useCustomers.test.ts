@@ -4,11 +4,11 @@ import {
   SchemaValidationFailureException,
   SCHEMA_VALIDATION_FAILURE_MESSAGE,
 } from "../../api/exceptions";
-import { validResponseFixture } from "../../api/__test__/responseFixtures";
+import { validCustomersFixture } from "../../api/__test__/responseFixtures";
 import { silenceExpectedConsoleError } from "../../setupTests";
 import { useCustomers } from "../useCustomers";
 
-const MOCKED_CUSTOMERS = validResponseFixture.listZellerCustomers.items;
+const MOCKED_CUSTOMERS = validCustomersFixture;
 
 describe("useCustomers", () => {
   beforeEach(() => {
@@ -21,8 +21,8 @@ describe("useCustomers", () => {
       .mockResolvedValue(MOCKED_CUSTOMERS);
 
     const expectedCustomersByRole = new Map([
-      ["ADMIN", [MOCKED_CUSTOMERS[0]]],
-      ["MANAGER", [MOCKED_CUSTOMERS[1]]],
+      ["ADMIN", MOCKED_CUSTOMERS.filter((c) => c.role === "ADMIN")],
+      ["MANAGER", MOCKED_CUSTOMERS.filter((c) => c.role === "MANAGER")],
     ]);
 
     const { result } = renderHook(useCustomers);
