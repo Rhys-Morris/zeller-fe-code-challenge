@@ -5,12 +5,11 @@ export function validateApiResponse<T>(
   schema: ZodType<T>,
   response: unknown
 ): T {
-  const { success, error, data } = schema.safeParse(response);
+  const { success, data } = schema.safeParse(response);
 
   if (success) {
     return data;
   } else {
-    console.error("Could not validate ", error.errors);
     throw new SchemaValidationFailureException();
   }
 }

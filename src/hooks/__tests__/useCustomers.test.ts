@@ -1,7 +1,11 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { CustomerService } from "../../api/customers/service";
-import { SchemaValidationFailureException } from "../../api/exceptions";
+import {
+  SchemaValidationFailureException,
+  SCHEMA_VALIDATION_FAILURE_MESSAGE,
+} from "../../api/exceptions";
 import { validResponseFixture } from "../../api/__test__/responseFixtures";
+import { silenceExpectedConsoleError } from "../../setupTests";
 import { useCustomers } from "../useCustomers";
 
 const MOCKED_CUSTOMERS = validResponseFixture.listZellerCustomers.items;
@@ -33,6 +37,7 @@ describe("useCustomers", () => {
   });
 
   it("should set isError to true when data fetching fails", async () => {
+    silenceExpectedConsoleError(SCHEMA_VALIDATION_FAILURE_MESSAGE);
     jest
       .spyOn(CustomerService, "getCustomers")
       .mockRejectedValue(new SchemaValidationFailureException());
