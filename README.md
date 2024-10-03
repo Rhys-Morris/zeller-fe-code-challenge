@@ -4,6 +4,10 @@ The recommended node version for development is `v18.18.2`+.
 
 If you have [Node Version Manager](https://github.com/nvm-sh/nvm) installed execute `nvm use` within the root directory to automatically switch to the target version via the provided `.nvmrc` file.
 
+If it's your first time working with `Node.js` and/or `npm` instructions for download/installation can be found [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+
+Next install project dependencies by executing `npm install`.
+
 To setup the application correctly for outbound requests some minor env configuration is required. 
 
 - Option 1
