@@ -8,9 +8,9 @@ type Props = {
   setSelectedRole: (value: SetStateAction<Role>) => void;
 };
 
-export function RoleRadios({ selectedRole, setSelectedRole }: Props) {
-  const baseClassName = styles.radio;
+const baseClassName = styles.radio;
 
+export function RoleRadios({ selectedRole, setSelectedRole }: Props) {
   return (
     <fieldset className={styles.fieldset}>
       <legend className={styles.screenReaderOnly}>Select a role:</legend>
@@ -31,6 +31,7 @@ export function RoleRadios({ selectedRole, setSelectedRole }: Props) {
               onClick={() => setSelectedRole(role)}
               onChange={() => setSelectedRole(role)}
               className={styles.radioInput}
+              aria-checked={isSelected}
             />
             {titleCase(role)}
           </label>

@@ -29,6 +29,7 @@ fieldset {
     position: relative;
     top: 0;
     transform: scale(1.2);
+    cursor: pointer;
 
     @media (min-width: 500px) {
         top: -2px;
