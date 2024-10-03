@@ -5,12 +5,15 @@ import { CustomerService } from "../api/customers/service";
 type CustomersByRole = Map<Role, Customer[]>;
 
 export const useCustomers = () => {
-  const [customers, setCustomers] = useState<Customer[]>([]);
+  const [customersByRole, setCustomersByRole] =
+    useState<CustomersByRole>(initEmptyRoleMap);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     CustomerService.getCustomers()
-      .then((customers) => setCustomers(customers))
+      .then((customers) =>
+        setCustomersByRole(associateCustomersByRole(customers))
+      )
       .catch((e: unknown) => {
         if (e instanceof Error) {
           console.error(e.message);
@@ -18,11 +21,6 @@ export const useCustomers = () => {
         setIsError(true);
       });
   }, []);
-
-  const customersByRole = useMemo(
-    () => associateCustomersByRole(customers),
-    [customers]
-  );
 
   return {
     customersByRole,

@@ -25,7 +25,7 @@ describe("useCustomers", () => {
       ["MANAGER", MOCKED_CUSTOMERS.filter((c) => c.role === "MANAGER")],
     ]);
 
-    const { result } = renderHook(useCustomers);
+    const { result } = renderHook(() => useCustomers());
 
     await waitFor(() => {
       expect(result.current.customersByRole).toEqual(expectedCustomersByRole);
@@ -38,6 +38,7 @@ describe("useCustomers", () => {
 
   it("should set isError to true when data fetching fails", async () => {
     silenceExpectedConsoleError(SCHEMA_VALIDATION_FAILURE_MESSAGE);
+
     jest
       .spyOn(CustomerService, "getCustomers")
       .mockRejectedValue(new SchemaValidationFailureException());
@@ -47,7 +48,7 @@ describe("useCustomers", () => {
       ["MANAGER", []],
     ]);
 
-    const { result } = renderHook(useCustomers);
+    const { result } = await renderHook(() => useCustomers());
 
     await waitFor(() => {
       expect(result.current.customersByRole).toEqual(expectedCustomersByRole);

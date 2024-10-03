@@ -18,6 +18,8 @@ code {
   --color-avatar-font: #297AD1;
   --color-border: #E2E8F0;
   --color-text-role: #797876;
+  --color-error: #FBECEE;
+  --color-text-error: #86434B;
 
   --border-radius-default: 8px;
 

@@ -1,0 +1,9 @@
+.error {
+    width: 100%;
+    min-height: 1.5rem;
+    background: var(--color-error);
+    color: var(--color-text-error);
+    padding: 0.65rem 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius-default);
+}

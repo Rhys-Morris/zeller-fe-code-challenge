@@ -5,6 +5,7 @@ import { RoleRadios } from "./components/RoleRadios";
 import { useCustomers } from "./hooks/useCustomers";
 import { titleCase } from "./utils/string";
 import styles from "./App.module.css";
+import { ErrorMessage } from "./components/ErrorMessage";
 
 function App() {
   const { customersByRole, isError } = useCustomers();
@@ -25,9 +26,11 @@ function App() {
           <h2 className={styles.sectionHeader}>
             {titleCase(selectedRole)} Users
           </h2>
-          {customers.map((customer) => (
-            <CustomerRow customer={customer} key={customer.id} />
-          ))}
+          {isError && <ErrorMessage />}
+          {!isError &&
+            customers.map((customer) => (
+              <CustomerRow customer={customer} key={customer.id} />
+            ))}
         </section>
       </div>
     </div>
