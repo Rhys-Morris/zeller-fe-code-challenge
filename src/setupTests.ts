@@ -9,7 +9,3 @@ export function silenceExpectedConsoleError(error: string) {
   console.error = (msg) =>
     !msg.toString().includes(error) && originalError(msg);
 }
-
-silenceExpectedConsoleError(
-  "Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`"
-);
