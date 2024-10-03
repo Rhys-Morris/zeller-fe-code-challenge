@@ -21,13 +21,14 @@ export function RoleRadios({ selectedRole, setSelectedRole }: Props) {
           : baseClassName;
 
         return (
-          <label htmlFor={`${role}-role`} className={className}>
+          <label htmlFor={`${role}-role`} className={className} key={role}>
             <input
               type="radio"
               id={`${role}-role`}
               name="role"
               value={role}
               checked={isSelected}
+              onClick={() => setSelectedRole(role)}
               onChange={() => setSelectedRole(role)}
               className={styles.radioInput}
             />
