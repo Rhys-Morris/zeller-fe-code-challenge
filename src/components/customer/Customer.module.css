@@ -1,0 +1,33 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.avatar {
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    background: var(--color-avatar-bg);
+    color: var(--color-avatar-font);
+    border-radius: var(--border-radius-default);
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.detailsName {
+    font-size: 1.2rem;
+}
+
+.detailsRole {
+    color: var(--color-text-role);
+    padding-top: 5px;
+}

@@ -1,0 +1,28 @@
+:root {
+    --color-selected: #E8F2FC;
+    --color-avatar-bg: var(--color-selected);
+    --color-avatar-font: #297AD1;
+    --color-border: #E2E8F0;
+    --color-text-role: #797876;
+
+    --border-radius-default: 8px;
+
+    --font-size-large: 24px;
+    --font-size-medium: 20px;
+    --font-size-small: 16px;
+    --font-size-tiny: 12px;
+
+    font-size: var(--font-size-large);
+
+    @media (max-width: 800px) {
+        font-size: var(--font-size-medium)
+    }
+
+    @media (max-width: 500px) {
+        font-size: var(--font-size-small)
+    }
+
+    @media (max-width: 300px) {
+        font-size: var(--font-size-tiny)
+    }
+}
