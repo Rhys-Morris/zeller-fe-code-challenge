@@ -1,14 +1,14 @@
-import { BASE_AWS_GRAPHQL_URL } from "./aws";
-import { ApiKeyNotProvidedException } from "./exceptions";
+import { ApiConfigurationNotProvidedException } from "./exceptions";
 
 export async function postQuery(query: string) {
   const apiKey = process.env.REACT_APP_AWS_API_KEY;
+  const apiEndpoint = process.env.REACT_APP_AWS_QUERY_ENDPOINT;
 
-  if (!apiKey) {
-    throw new ApiKeyNotProvidedException();
+  if (!apiKey || !apiEndpoint) {
+    throw new ApiConfigurationNotProvidedException();
   }
 
-  const response = fetch(BASE_AWS_GRAPHQL_URL, {
+  const response = fetch(apiEndpoint, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

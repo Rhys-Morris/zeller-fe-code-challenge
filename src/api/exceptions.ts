@@ -1,10 +1,10 @@
-export class ApiKeyNotProvidedException extends Error {
+export class ApiConfigurationNotProvidedException extends Error {
   constructor() {
     super(
-      "Missing AWS Api Key - please review documentation on how to provide"
+      "Missing AWS Api Configuration - please review documentation on how to provide"
     );
-    this.name = "ApiKeyNotProvidedException";
-    Object.setPrototypeOf(this, ApiKeyNotProvidedException.prototype);
+    this.name = "ApiConfigurationNotProvidedException";
+    Object.setPrototypeOf(this, ApiConfigurationNotProvidedException.prototype);
   }
 }
 
