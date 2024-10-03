@@ -1,0 +1,42 @@
+.screenReaderOnly {
+    visibility: hidden;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+}
+
+.fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.radio {
+    padding: 0.8rem;
+    border-radius: var(--border-radius-default);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.radioSelected {
+    background-color: var(--color-selected);
+}
+
+.radioInput {
+    margin-right: 1rem;
+    position: relative;
+    top: 0;
+    transform: scale(1.2);
+
+    @media (min-width: 500px) {
+        top: -2px;
+        transform: scale(1.5);
+    }
+
+    @media (min-width: 800px) {
+        top: -3px;
+        transform: scale(2.0);
+    }
+}
